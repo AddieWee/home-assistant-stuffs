@@ -42,6 +42,12 @@ Successful connection message
 ```bash
    Device 'wlan0' successfully activated with....
 ```
+#### Delete WiFi Connection
+
+```bash
+nmcli connection show
+nmcli connection delete "SSID_NAME"
+```
 
 #### Test connectivity
 
@@ -571,6 +577,44 @@ If Custom device YAML doesn't reflect:
 If there's an error adding a device:
 
 1. Validate the custom device's YAML
+
+### LocalTuyaIR
+
+For Tuya IR & RC Revices
+
+#### Installation & Adding Devices
+
+> Reference: https://github.com/ClusterM/localtuya_rc/
+
+#### Learning Commands
+
+1. Home Assistant > Developer Tools > Actions
+
+2. Search for `remote.learn_command`
+
+3. Fill in
+   - Targets: `Add target > Entities > "Your device"`
+   - Device: the device that it controls (eg: bedroom_ac)
+   - Command: any string (eg: power_off)
+
+4. Perform action (A spinner will appear)
+
+5. Point your remote control at the IR blaster and press the desired button
+
+6. You should receive a notification at the bottom left
+
+#### Sending Commands
+
+1. Home Assistant > Developer Tools > Actions
+
+2. Search for `remote.send_command`
+
+3. Fill in
+   - Targets: `Add target > Entities > "Your device"`
+   - Device: the device that it controls (eg: bedroom_ac)
+   - Command: any string that you configured previously (eg: power_off)
+
+4. Perform action
 
 ### Blocking Tuya Device's Internet Connection
 
