@@ -1,0 +1,46 @@
+name: Custom Wall Switch 3 Gang
+products:
+  - id: buieug9god6pyzda
+entities:
+  # Switches
+  - entity: switch
+    name: switch_1
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+  - entity: switch
+    name: switch_2
+    dps:
+      - id: 2
+        type: boolean
+        name: switch
+  - entity: switch
+    name: switch_3
+    dps:
+      - id: 3
+        type: boolean
+        name: switch
+
+  # Configuration  
+  - entity: select
+    name: relay_status
+    category: config
+    dps:
+      - id: 14
+        type: string
+        name: option
+        mapping:
+          - dps_val: "off"
+            value: "off"
+          - dps_val: "on"
+            value: "on"
+          - dps_val: memory
+            value: memory
+  - entity: light
+    translation_key: backlight
+    category: config
+    dps:
+      - id: 16
+        type: boolean
+        name: switch
