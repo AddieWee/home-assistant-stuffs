@@ -1,0 +1,71 @@
+name: Custom Wall Switch 2 Gang with Sensor
+products:
+  - id: motal1vvze8wmzib
+entities:
+  - entity: switch
+    name: switch_1
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+  - entity: switch
+    name: switch_2
+    dps:
+      - id: 2
+        type: boolean
+        name: switch
+  - entity: select
+    name: initial_state
+    category: config
+    dps:
+      - id: 14
+        type: string
+        name: option
+        mapping:
+          - dps_val: "off"
+            value: "off"
+          - dps_val: "on"
+            value: "on"
+          - dps_val: memory
+            value: memory
+  - entity: light
+    translation_key: backlight
+    category: config
+    dps:
+      - id: 16
+        type: boolean
+        name: switch
+  - entity: binary_sensor
+    name: occupancy
+    class: occupancy
+    dps:
+      - id: 102
+        name: sensor # This is needed
+        type: string
+        readonly: true
+        mapping:
+          - dps_val: presence
+            value: true
+          - dps_val: none
+            value: false
+  - entity: number
+    name: Presence Delay
+    category: config
+    dps:
+      - id: 103
+        name: value
+        unit: s
+        type: integer
+        range:
+          min: 5
+          max: 86400
+  - entity: number
+    name: Sensitivity
+    category: config
+    dps:
+      - id: 104
+        name: value
+        type: integer
+        range:
+          min: 1
+          max: 25
