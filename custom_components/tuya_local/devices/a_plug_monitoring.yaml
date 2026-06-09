@@ -45,7 +45,7 @@ entities:
         class: measurement
         unit: W
         mapping:
-          - scale: 0.1
+          - scale: 1
       - id: 24
         type: integer
         name: calibration
